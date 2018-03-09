@@ -1,0 +1,915 @@
+$color_beige: #EFE9E7
+$color_brown: #3D1101
+$color_beigewhite: #FAFAFA
+$color_btnGary: rgba(0,0,0,0.35)
+$color_btnOrange: #F56C23
+$color_facebook: #3A5795
+$color_twitter: #41ABE1
+$color_googlep: #DB4437
+$color_green: #00CC99
+//--------顏色定義-----------
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css)
+
+@mixin size($w,$h)
+  height: $h
+  width: $w
+  
+$pad: 768px
+$phone: 480px
+
+@mixin rwd($width)
+  @media (max-width: $width)
+    @content
+@mixin rwd-b($mwidth,$mxwidth)
+  @media (min-width: $mwidth) and (max-width: $mxwidth)
+    @content
+
+    
+//--------參數定義-----------
+
+*
+  // border: solid 1px
+  box-sizing: border-box
+  position: relative
+  font-family: 微軟正黑體
+//--------debug-------
+  // header.jumbotron-fluid#head
+  //   display: none
+  // section#whyummy
+  //   display: none
+  // section#chef
+  //   display: none
+  // section#other
+  //   display: none
+  // section#reserve
+  //   display: none
+
+html,body
+  height: 100%
+  width: 100%
+body
+  margin: 0
+  padding: 0
+  background-color: #333
+
+.mainbox
+  max-width: 1024px
+  min-width: 320px
+  height: 100%
+  margin: auto
+
+
+header.jumbotron-fluid#head
+  background-image: url(https://hexschool.github.io/Rwd_sketch_export/assets/header_desktop.png)
+  //background-attachment:fixed會把背景圖片定位在左邊故要用background-position: top 將背景圖定位在上方才能成功顯示效果
+  background-position: top
+  background-attachment: fixed
+  +size(100%,420px)
+  padding: 0px
+  margin: 0px
+  +rwd($phone)
+    background-image: url(https://hexschool.github.io/Rwd_sketch_export/assets/header_mobile.png)
+  .titlebox
+    +size(460px,152px)
+    background-color: rgba(black,0.35)
+    color: white
+    margin: auto
+    margin-top: 67px
+    .slogan
+      position: absolute
+      left: 22px
+      top: 20px
+      font-size: 36px
+    .inside_text
+      position: absolute
+      width: 192px
+      height: 42px
+      text-align: center
+      left: 134px
+      top: 84px
+      h6
+        display: inline-block
+        margin: 0px
+    +rwd($phone)
+      +size(300px,194px)
+      margin-top: 57px
+      .slogan
+        +size(288px,96px)
+        text-align: center
+        left: 6px
+        .bite
+          display: block
+      .inside_text
+        left: 54px
+        top: 132px
+        
+      
+  nav.navbar.navbar-expand-md.navbar-light
+    background-color: rgba(black,0.5)
+    .navbar-brand
+      font-family: 'Noto Sans TC'
+      font-size: 19px
+      font-weight: 700
+      color: white
+    .custom-toggler
+      &.navbar-toggler
+        border-color: rgb(255, 255, 255)
+      .navbar-toggler-icon
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E")
+    #navbarNav.collapse.navbar-collapse.justify-content-end
+      .nav-link
+        color: white
+        padding-right: 31px
+        &:hover
+          color: $color_btnOrange
+        
+section
+  padding: 50px 0px
+  
+// ---------特色-------------
+section#whyummy
+  background-color: $color_beige
+  +size(100%,auto)
+  .container
+    padding: 0px 62px
+    .headtext
+      +size(200px,64px)
+      font-size: 20px
+      text-align: center
+      color: $color_brown
+      line-height: 32px
+      font-weight: 600
+      left: 50%
+      transform: translateX(-50%)
+      &::before
+        content: ''
+        position: absolute
+        border-bottom: 1px solid
+        +size(130px,1px)
+        border-color: #979797
+        left: -145px
+        top: 50%
+      &::after
+        content: ''
+        position: absolute
+        border-bottom: 1px solid
+        +size(130px,1px)
+        border-color: #979797
+        right: -145px
+        top: 50%
+    .imgbox
+      +size(200px,200px)
+      border-radius: 50%
+      overflow: hidden
+      left: 50%
+      transform: translateX(-50%)
+      margin-bottom: 20px
+    h5
+      color: $color_brown
+      font-weight: 600
+      margin-bottom: 11px
+    .textbox
+      +size(260px,auto)
+      font-size: 16px
+      color: $color_brown
+      margin: auto
+      p
+        margin: 0px
+  
+  +rwd-b(768px,992px)
+    .container
+      padding: 0px 27px
+      max-width: 992px
+      margin: 0px
+      width: 100%
+      .textbox
+        +size(196px,auto)
+  +rwd-b(481px,768px)
+    +size(100%,auto)
+    .container
+      .mr-top
+        margin-top: 30px
+      .headtext
+        &::before
+          content: ''
+          +size(112px,1px)
+          left: -132px
+        &::after
+          content: ''
+          +size(112px,1px)
+          right: -132px
+  +rwd($phone)
+    +size(100%,auto)
+    .headtext
+      &::before
+        content: ''
+        display: none
+      &::after
+        content: ''
+        display: none
+    .textbox
+      +size(260px,100%)
+    .mr-top
+      margin-top: 30px
+      
+// ---------主廚------------- 
+section#chef
+  background-color: $color_brown
+  +size(100%,460px)
+  padding: 0px
+  color: $color_beige
+  .container
+    padding: 0px 42px
+    .chef-pic
+      +size(470px,460px)
+      background-image: url(https://hexschool.github.io/Rwd_sketch_export/assets/main_chef_brown.png)
+      background-position: center
+    .chef-name
+      margin-top: 81px
+      margin-bottom: 16px
+      h3
+        font-size: 20px
+        margin: 0px
+      h5
+        font-size: 16px
+        margin: 0px
+    .chef-intro
+      +size(410px,auto)
+  +rwd-b(768px,992px)
+    .container
+      margin: 0px
+      padding: 0px
+      max-width: 992px
+      .row
+        +size(100%,100%)
+        margin: 0px
+      .chef-pic
+        +size(373px,460px)
+      .pl-40
+        padding-left: 40px
+      .chef-name
+        margin-top: 49px
+      .chef-intro
+        +size(330px,auto)
+  +rwd-b($phone,768px)
+    +size(100%,auto)
+    .container
+      .row
+      .chef-pic
+        +size(373px,460px)
+  +rwd($phone)
+    +size(100%,auto)
+    .container
+      margin: 0px
+      padding: 0px
+      .row
+        +size(100%,100%)
+        margin: 0px
+        padding: 0px
+      .col-12
+        padding: 0px
+      .chef-pic
+        width: 100%
+      .chef-name
+        +size(260px,auto)
+
+        margin: auto
+        margin-top: 30px
+        margin-bottom: 16px
+        
+      .chef-intro
+        +size(260px,auto)
+        margin: auto
+        
+//--------聽別人的感想----------------
+section#other
+  +size(100%,auto)
+  background-color: $color_beige
+  .container
+    padding: 0px
+    .row
+      margin: 0px 42px
+      .mb-32
+        margin-bottom: 32px
+      .mr-a
+        margin-right: auto
+      .col-lg-4
+        padding: 0px
+        max-width: 300px
+  h4
+    color: $color_brown
+    margin: 0px
+    font-weight: 700
+  .photobox
+    +size(67px,67px)
+    border-radius: 50%
+    &.fst
+      background-image: url(https://hexschool.github.io/Rwd_sketch_export/assets/avatar_1.png)
+    &.sec
+      background-image: url(https://hexschool.github.io/Rwd_sketch_export/assets/avatar_2.png)
+    &.thrd
+      background-image: url(https://hexschool.github.io/Rwd_sketch_export/assets/avatar_3.png)
+    .title
+      position: absolute
+      +size(90px,24px)
+      right: -103px
+      top: 50%
+      transform: translateY(-50%)
+      h5
+        font-size: 18px
+  .advice
+    +size(220px,96px)
+    line-height: 24px
+    color: $color_brown
+    right: -80px
+  .name
+    margin-top: 16px
+    text-align: right
+    right: -80px
+    +size(220px,24px)
+    p
+      margin: 0px
+  +rwd-b(815px,992px)
+    .container
+      max-width: 992px
+      .row
+        .col-md-4
+          max-width: 236px
+        .advice
+          +size(155px,auto)
+        .name
+          right: -15px
+  +rwd-b(768px,815px)
+    .container
+      max-width: 768px
+      margin: 0px
+      .row
+        margin: 0px 10px
+        .col-md-4
+            max-width: 236px
+        .advice
+            +size(155px,auto)
+        .name
+          right: -15px
+  +rwd-b($phone,768px)
+    .container
+      .row
+        .col-12
+          margin: auto
+  +rwd($phone)
+    .container
+      .row
+        .col-12
+          margin: auto
+        .advice
+          +size(155px,auto)
+        .name
+          right: -15px
+
+//-----------地圖------------------
+section#reserve
+  +size(100%,auto)
+  background-color: $color_beigewhite
+  .row
+    padding: 0px 27px
+  .mapbox
+    +size(460px,386px)
+    background-image: url(https://hexschool.github.io/Rwd_sketch_export/assets/Map.png)
+    background-position: center
+  .titlebox
+    +size(216px,64px)
+    left: 50%
+    transform: translateX(-50%)
+    margin-bottom: 38px
+    h4
+      margin: 0px
+      color: $color_brown
+      font-weight: 700
+  form
+    font-size: 14px
+    +size(100%,100%)
+    label
+      width: 100%
+      color: $color_brown
+      margin-bottom: 6px
+    input
+      width: 100%
+      margin-bottom: 12px
+    .radiobox
+      label
+        width: auto
+        margin-bottom: 0px
+      input
+        width: auto
+        margin-bottom: 0px
+        margin-right: 36px
+    .buttonbox
+      position: absolute
+      right: 0px
+      bottom: 0px
+      .btn
+        +size(70px,32px)
+        padding: 0px
+        font-size: 14px
+        color: white
+        background-color: $color_btnGary
+        border-radius: 3px
+        margin-right: 11px 
+        &.orange
+          background-color: $color_btnOrange
+          margin-right: 0px
+  +rwd(1200px)
+    .mapbox
+      +size(400px,386px)
+  +rwd-b($pad,992px)
+    .container
+      padding: 0px
+      .row
+        padding: 0px
+        .mapbox
+          +size(363px,386px)
+  +rwd-b(481px,767px)
+    .container
+      .row
+        padding: 0px
+      .mapbox
+        +size(440px,386px)
+  +rwd($phone)
+    padding-bottom: 100px
+    .container
+      +size(100%,auto)
+      padding: 0px
+      .row
+        padding: 0px
+        margin: 0px 10px
+      .mapbox
+        +size(298px,386px)
+      .buttonbox
+        position: absolute
+        bottom: -64px
+ 
+// ---------登入主體-------------
+section#login-main
+  background-color: $color_beige
+  display: flex
+  flex-direction: column
+  +size(100%,460px)
+  .login-logobox
+    color: $color_brown
+    text-align: center
+    h1
+      font-family: 'Noto Sans TC'
+      font-size: 49px
+      font-weight: 800
+    h5 
+      font-weight: bold
+  .login-body
+    +size(300px,273px)
+    border-top: 3px solid $color_btnOrange
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.15)
+    color: $color_brown
+    padding: 15px
+    margin: 0px auto
+    margin-top: 15px
+    h5
+      text-align: center
+      font-family: 'Noto Sans TC'
+      font-size: 18px
+      font-weight: 800
+      margin-bottom: 16px
+      
+    form
+      label,input
+        width: 100%
+        margin: 0px
+      .mail
+        margin-bottom: 15px
+        .far.fa-envelope
+          position: absolute
+          left: 9px
+          top: 8px
+      .password
+        .fas.fa-lock
+          position: absolute
+          left: 9px
+          top: 8px
+      input
+        border-radius: 3px
+        border: 1px solid #ced4da
+        padding: 3px 0px
+        padding-left: 30px
+          
+      .forget 
+        display: inline-block
+        font-size: 14px
+        color: $color_btnOrange
+        cursor: pointer
+        
+    .buttonbox
+      button
+        background-color: $color_btnGary
+        border: none
+        border-radius: 3px
+        color: white
+        +size(125px,32px)
+        margin-top: 20px 
+        cursor: pointer
+        transition: 0.2s
+        font-size: 14px
+        &:hover
+          transform: scale(1.05,1.05)
+      .orange
+        position: absolute
+        background-color: $color_btnOrange
+        right: 0px
+
+// ---------註冊主體-------------
+section#register-main
+  background-color: $color_beige
+  display: flex
+  flex-direction: column
+  +size(100%,auto)
+  .register-logobox
+    color: $color_brown
+    text-align: center
+    h1
+      font-family: 'Noto Sans TC'
+      font-size: 49px
+      font-weight: 800
+    h5 
+      font-weight: bold
+  .register-body
+    +size(620px,316px)
+    border-top: 3px solid $color_btnOrange
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.15)
+    color: $color_brown
+    padding: 15px
+    margin: 0px auto
+    margin-top: 15px
+    h5
+      text-align: center
+      font-family: 'Noto Sans TC'
+      font-size: 18px
+      font-weight: 800
+      margin-bottom: 16px
+    .register-form
+      display: flex
+      .rule
+        +size(285px,100%)
+        margin-right: 20px
+        span
+          font-size: 18px
+          font-weight: bold
+        p
+          font-size: 14px
+      form
+        +size(270px,273px)
+        label,input
+          width: 100%
+          margin: 0px
+        .mail
+          margin-bottom: 15px
+          .far.fa-envelope
+            position: absolute
+            left: 9px
+            top: 8px
+        .password
+          .fas.fa-lock
+            position: absolute
+            left: 9px
+            top: 8px
+        .re
+          margin-top: 12px
+        input
+          border-radius: 3px
+          border: 1px solid #ced4da
+          padding: 3px 0px
+          padding-left: 30px
+
+        .already
+          display: inline-block
+          font-size: 14px
+          color: $color_btnOrange
+          cursor: pointer
+
+      .buttonbox
+        button
+          background-color: $color_btnGary
+          border: none
+          border-radius: 3px
+          color: white
+          +size(125px,32px)
+          margin-top: 20px 
+          cursor: pointer
+          transition: 0.2s
+          font-size: 14px
+          &:hover
+            transform: scale(1.05,1.05)
+        .orange
+          position: absolute
+          background-color: $color_btnOrange
+          right: 0px
+  +rwd(600px)
+    .register-body
+      +size(auto,auto)
+      .register-form
+        flex-direction: column
+
+// ---------購物車主體-------------
+section#order-main
+  background-color: $color_beige
+  display: flex
+  flex-direction: row
+  +size(100%,auto)
+  .ordernav
+    +size(220px,auto)
+    color: $color_brown
+    margin-left: 42px
+    margin-right: 20px
+    text-align: left
+    .navtitle
+      font-size: 20px
+      margin-bottom: 16px
+      font-weight: bold
+      .fa-pagelines
+        font-size: 36px
+    .navlist
+      ul
+        list-style-type: none
+        padding: 0px
+        li
+          padding: 5px 8px 
+          border-bottom: 1px solid $color_brown
+          cursor: pointer
+          &:hover
+            background-color: $color_brown
+            color: white
+  .menubody
+    +size(100%,auto)
+    padding-right: 42px
+
+    form
+      width: 70%
+      max-width: 460px
+      min-width: 250px
+      height: 32px
+      border: 2px solid $color_brown
+      padding-left: 5px 
+      margin-right: 10px 
+      input
+        +size(calc(100% - 36px),100%)
+        background-color: $color_beige
+        border: 0px
+        outline: none
+      .searchbtn
+        position: absolute
+        +size(36px,100%)
+        background-color: $color_brown
+        right: 0px
+        top: 0px
+        color: white
+        text-align: center
+        font-size: 19px
+        cursor: pointer
+    .cart
+      position: absolute
+      right: 42px
+      top: 0px
+      color: $color_brown
+      cursor: pointer
+      &:hover
+        .pay
+          border-bottom: 1px solid          
+      .pay
+        margin-right: 28px
+        &::before
+          content: ''
+          position: absolute
+          +size(0px,14px)
+          border-right: 1px solid
+          right: -13px
+          bottom: 0px
+      .fa-shopping-cart
+        font-size: 27px
+        .count
+          position: absolute
+          text-align: center
+          +size(16px,16px)
+          font-size: 12px
+          color: white
+          background-color: $color_btnOrange
+          border-radius: 50%
+          border: 1px solid white
+          right: -5px
+          top: -5px
+    .menu
+      display: inline-block
+      margin-top: 26px
+      box-shadow: 3px 3px 5px rgba(0,0,0,0.15)
+      transform-origin: center
+      transition: 0.2s
+      margin-right: 10px
+      &:hover
+        transform: scale(1.05,1.05)
+      .menupic
+        +size(220px,88px)
+        img
+          width: 100%
+        .like
+          position: absolute
+          top: 0px
+          color: white
+          margin-left: 3px
+          font-size: 20px
+          cursor: pointer
+          i.fas.fa-heart
+            display: none
+          &:hover
+            i.far.fa-heart
+              display: none
+            i.fas.fa-heart
+              display: inline-block
+        .hotbox
+          position: absolute
+          +size(100px,100px)
+          font-size: 14px
+          color: white
+          top: -5px
+          right: -5px
+          // border: 1px solid
+          overflow: hidden
+          .hot
+            position: absolute
+            transform: rotate(-315deg)
+            background-color: $color_green
+            text-align: center
+            left: 10px
+            top: 20px
+            width: 120px
+            &:before
+              content: ''
+              position: absolute
+              left: 5px
+              bottom: -8px
+              border-style: solid
+              border-width: 8px 8px 0px 0px
+              border-color: #078F6D transparent transparent transparent
+            &:after
+              content: ''
+              position: absolute
+              right: 8px
+              bottom: -8px
+              border-style: solid
+              border-width: 8px 0px 0px 8px
+              border-color: #078F6D transparent transparent transparent 
+      .menucontent
+        +size(220px,160px)
+        padding-top: 11px
+        color: $color_brown
+        
+        .name
+          text-align: center
+          h5
+            margin-bottom: 0px
+          h6
+            font-size: 12px
+        hr
+          border-bottom: 1px solid black
+          width: 81px
+          margin-bottom: 15px
+        .price
+          text-align: center
+          span
+            font-size: 20px
+          .number
+            font-weight: bold
+        .addcart
+          +size(200px,28px)
+          border: 2px solid $color_btnOrange
+          color: $color_btnOrange
+          text-align: center
+          margin: auto
+          margin-top: 5px
+          border-radius: 3px
+          cursor: pointer
+          &:hover
+            background-color: $color_btnOrange
+            color: white
+  +rwd($pad)
+    .ordernav
+      margin-left: 10px
+    .menubody
+      padding-right: 20px
+      .cart
+        right: 10px
+      .menu
+        margin-right: 3px
+  +rwd($phone)
+    flex-direction: column
+    .ordernav
+      width: 100%
+      margin: 0
+      padding: 0px 10px
+    .menubody
+      padding-right: 10px
+      text-align: center //當div設定為inline-block的時候 無法用margin: auto置中 要在外層加上text-align: center 或是將display改為table
+      form
+        width: 100%
+        margin: 0px 10px
+        
+      .cart
+        top: 45px
+        right: 10px
+      .menu
+        margin: 0 auto
+        margin-top: 74px
+        
+        .menupic
+          +size(300px,120px)
+          .like
+            margin-left: 6px 
+            margin-top: 3px
+        .menucontent
+          +size(300px,160px)
+          hr
+            width: 91px
+          .addcart
+            +size(280px,28px)
+//-------------底---------------
+footer
+  +size(100%,auto)
+  background-color: $color_beige
+  padding: 50px 0px
+  color: $color_brown
+  .container
+    padding: 0px
+    .row
+      margin: 0px 42px
+      .col-lg
+        padding: 0px  
+  h4
+    font-weight: bold
+    margin-bottom: 16px
+  .content
+    +size(299px,100%)
+    p
+      margin: 0px
+      line-height: 21px
+    ul
+      padding-left: 20px
+  .logobox
+    +size(100%,107px)
+    .restlogo
+      position: absolute
+      font-family: 'Noto Sans TC'
+      font-size: 49px
+      color: $color_brown
+      font-weight: 800
+      +size(245px,auto)
+      margin: 0px
+      right: 0px
+      top: -10px
+    .share
+      position: absolute
+      font-size: 36px
+      right: 0px
+      bottom: 0px
+      .fab
+        margin-right: 12px
+        cursor: pointer
+      .fa-google-plus-square
+        color: $color_googlep
+      .fa-twitter-square
+        color: $color_twitter
+      .fa-facebook-square
+        color: $color_facebook
+        margin: 0px
+  +rwd-b($pad,992px)
+    .container
+      max-width: 992px
+      margin: 0px
+      .row
+        margin: 0px
+        .content
+          +size(235px,100%)
+  +rwd(767px)
+    .container
+      max-width: 992px
+      margin: 0px
+      .row
+        margin: 0px
+        .mt-30
+          margin-top: 30px
+    
+
+      
+
+      
+      
+  
+    
+  
+        
+        
+        
+        
