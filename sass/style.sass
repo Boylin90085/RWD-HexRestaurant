@@ -80,6 +80,8 @@ header.jumbotron-fluid#head
       left: 22px
       top: 20px
       font-size: 36px
+      h1
+        display: inline-block
     .inside_text
       position: absolute
       width: 192px
@@ -415,6 +417,9 @@ section#reserve
         background-color: $color_btnGary
         border-radius: 3px
         margin-right: 11px 
+        transition: 0.2s
+        &:hover
+          transform: scale(1.05,1.05)
         &.orange
           background-color: $color_btnOrange
           margin-right: 0px
@@ -877,6 +882,9 @@ footer
       .fab
         margin-right: 12px
         cursor: pointer
+        transition: 0.2s
+        &:hover
+          transform: scale(1.05,1.05)
       .fa-google-plus-square
         color: $color_googlep
       .fa-twitter-square

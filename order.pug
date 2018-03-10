@@ -1,11 +1,22 @@
 doctype html
-html(lang="en")
+html(lang="zh-Hant-TW")
   head
     meta(charset='UTF-8')
-    title hexrest
+    title 六角西餐廳 線上訂購
+    
+    <!-- facebook -->
+
+    meta(property='og:title', content='六角西餐廳 線上訂購')
+    meta(property='og:type', content='website')
+    meta(property='og:url', content='https://boylin90085.github.io/RWD-HexRestaurant/order.html')
+    meta(property='og:image', content='https://hexschool.github.io/Rwd_sketch_export/assets/header_desktop.png')
+    meta(property='og:description', content='咬一口就無法忘懷的漢堡')
+    
+    <!-- 引用 -->
+
+    link(rel='icon', type='image/png', sizes='32x32', href='icon/hamburger.png')
     link(rel='stylesheet prefetch', href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css')
     link(rel='stylesheet prefetch', href='https://use.fontawesome.com/releases/v5.0.6/css/all.css')
-    link(rel='stylesheet prefetch', href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700')
     link(rel='stylesheet', href='css/style.css')
   body
 
@@ -27,8 +38,8 @@ html(lang="en")
                 a.nav-link(href='login.html') 登入
         .titlebox
           .slogan
-            span.bite 咬一口
-            span 就無法忘懷的漢堡
+            h1.bite 咬一口
+            |就無法忘懷的漢堡
           .inside_text
             h6 七夕絕對無法錯過的好味道
             i.fas.fa-utensils
